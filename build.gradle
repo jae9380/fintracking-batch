@@ -29,12 +29,17 @@ dependencies {
     // Common
     implementation 'com.ft:fintracking-common:1.0.1'
 
+    // Spring Batch
     implementation 'org.springframework.boot:spring-boot-starter-batch'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.kafka:spring-kafka'
-    runtimeOnly 'com.mysql:mysql-connector-j'
     testImplementation 'org.springframework.batch:spring-batch-test'
-    
+
+    // Kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // PostgreSQL
+    runtimeOnly 'org.postgresql:postgresql'
+
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -43,6 +48,9 @@ dependencies {
 
     // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
 }
 
 tasks.named('test') {

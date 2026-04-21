@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     // Common
-    implementation 'com.ft:fintracking-common:1.0.1'
+    implementation 'com.ft:fintracking-common:1.0.2'
 
     // Spring Batch
     implementation 'org.springframework.boot:spring-boot-starter-batch'

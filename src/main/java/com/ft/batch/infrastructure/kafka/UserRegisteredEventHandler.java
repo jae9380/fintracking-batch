@@ -5,6 +5,7 @@ import com.ft.batch.domain.BatchUser;
 import com.ft.common.event.UserRegisteredEvent;
 import com.ft.common.kafka.EventHandler;
 import com.ft.common.kafka.KafkaTopic;
+import com.ft.common.metric.annotation.MonitoredKafka;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -17,6 +18,7 @@ public class UserRegisteredEventHandler implements EventHandler<UserRegisteredEv
 
     private final BatchUserRepository batchUserRepository;
 
+    @MonitoredKafka(topic = KafkaTopic.USER_REGISTERED, action = "consume")
     @KafkaListener(topics = KafkaTopic.USER_REGISTERED, groupId = "batch-service")
     @Override
     public void handle(UserRegisteredEvent event) {

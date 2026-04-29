@@ -14,7 +14,7 @@ public class BatchReportEventPublisher extends AbstractEventPublisher<BatchRepor
     }
 
     @Override
-    protected String topic() {
+    public String topic() {
         return KafkaTopic.BATCH_REPORT;
     }
 }

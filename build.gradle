@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     // Common
-    implementation 'com.ft:fintracking-common:1.0.7'
+    implementation 'com.ft:fintracking-common:1.0.8'
 
     // Spring Cloud Config Client
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
@@ -36,6 +36,12 @@ dependencies {
     // Spring Batch
     implementation 'org.springframework.boot:spring-boot-starter-batch'
     testImplementation 'org.springframework.batch:spring-batch-test'
+
+    // AOP (메트릭 Aspect 활성화)
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    // Actuator (MeterRegistry 제공 — 메트릭 수집 필수)
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     // Kafka
     implementation 'org.springframework.kafka:spring-kafka'

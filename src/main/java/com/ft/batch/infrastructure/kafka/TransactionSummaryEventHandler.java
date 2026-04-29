@@ -5,6 +5,7 @@ import com.ft.batch.domain.BatchTransactionSummary;
 import com.ft.common.event.TransactionCreatedEvent;
 import com.ft.common.kafka.EventHandler;
 import com.ft.common.kafka.KafkaTopic;
+import com.ft.common.metric.annotation.MonitoredKafka;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -19,6 +20,7 @@ public class TransactionSummaryEventHandler implements EventHandler<TransactionC
 
     private final BatchTransactionSummaryRepository batchTransactionSummaryRepository;
 
+    @MonitoredKafka(topic = KafkaTopic.TRANSACTION_CREATED, action = "consume")
     @KafkaListener(topics = KafkaTopic.TRANSACTION_CREATED, groupId = "batch-service")
     @Override
     public void handle(TransactionCreatedEvent event) {

@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     // Common
-    implementation 'com.ft:fintracking-common:1.0.8'
+    implementation 'com.ft:fintracking-common:1.1.1'
 
     // Spring Cloud Config Client
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
